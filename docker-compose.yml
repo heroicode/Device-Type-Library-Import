@@ -1,0 +1,20 @@
+name: python3
+
+services:
+  python3:
+    image: python:3-slim
+    ## start with a shell:
+    command: /bin/bash -l
+    ## autoconfigure and import
+    # command: [ sh, -c, "/app/configure.sh; /app/nb-dt-import.py" ]
+    tty: true
+    stdin_open: true
+    attach: true
+    volumes:
+      - ./:/app
+    # networks:
+    #   - netbox_default
+
+# networks:
+#   netbox_default:
+#     external: true
